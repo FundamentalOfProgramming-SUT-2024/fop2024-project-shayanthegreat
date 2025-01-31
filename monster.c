@@ -186,6 +186,25 @@ void Update_level_monster_marg(int level){
         }
         if(is_adj(levels[level].monsters[i]->position, User->position)){
             User->health -= levels[level].monsters[i]->damage;
+            switch (levels[level].monsters[i]->type){
+                case 0:
+                    message3("Deamon attacked you!", 1);
+                    break;
+                case 1:
+                    message3("Fire Breathing Monster attacked you!", 1);
+                    break;
+                case 2:
+                    message3("Gaint attacked you!", 1);
+                    break;
+                case 3:
+                    message3("Snake attacked you!", 1);
+                    break;
+                case 4: 
+                    message3("Undeed attacked you!", 1);
+                    break; 
+                default :
+                    break;
+            }
         }
         mvprintw(levels[level].monsters[i]->position.x, levels[level].monsters[i]->position.y, "%c", levels[level].monsters[i]->symbol);
         move(User->position.x, User->position.y);
@@ -287,6 +306,25 @@ void Update_level_monster(int level){
         }
         if(is_adj(levels[level].monsters[i]->position, User->position)){
             User->health -= levels[level].monsters[i]->damage;
+            switch (levels[level].monsters[i]->type){
+                case 0:
+                    message3("Deamon attacked you!", 1);
+                    break;
+                case 1:
+                    message3("Fire Breathing Monster attacked you!", 1);
+                    break;
+                case 2:
+                    message3("Gaint attacked you!", 1);
+                    break;
+                case 3:
+                    message3("Snake attacked you!", 1);
+                    break;
+                case 4: 
+                    message3("Undeed attacked you!", 1);
+                    break; 
+                default :
+                    break;
+            }
         }
         mvprintw(levels[level].monsters[i]->position.x, levels[level].monsters[i]->position.y, "%c", levels[level].monsters[i]->symbol);
         move(User->position.x, User->position.y);
@@ -308,12 +346,32 @@ void change_tile(int level, int x, int y, int type, char symbol){
         mvprintw(x, y, "%c", symbol);
     }
 }
+
 void attack(int level, int x){
     switch(User->activegun){
         case 0:
             for(int i = 0; i < levels[level].monstersnum; i++){
                 if(is_adj(User->position, levels[level].monsters[i]->position)){
                     levels[level].monsters[i]->health -= (5) * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                    switch (levels[level].monsters[i]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                 }
             }
             break;
@@ -321,6 +379,25 @@ void attack(int level, int x){
             for(int i = 0; i < levels[level].monstersnum; i++){
                 if(is_adj(User->position, levels[level].monsters[i]->position)){
                     levels[level].monsters[i]->health -= 10 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                    switch (levels[level].monsters[i]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                 }
             }
             break;
@@ -343,6 +420,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 12 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }
@@ -359,6 +455,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 12 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }
@@ -375,6 +490,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 12 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
 
                     break;
@@ -392,6 +526,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 12 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }
@@ -419,6 +572,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 15 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }
@@ -435,6 +607,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 15 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }
@@ -451,6 +642,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 15 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
 
                     break;
@@ -468,6 +678,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 15 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }else{
@@ -494,6 +723,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 5 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }
@@ -510,6 +758,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 5 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }
@@ -526,6 +793,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 5 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }
@@ -542,6 +828,25 @@ void attack(int level, int x){
                     }
                     else{
                         levels[level].monsters[res]->health -= 5 * (1 + ((User->activespell[2]>0) | (GLOBAL_INCREMENT_DAMAGE > 0)));
+                        switch (levels[level].monsters[res]->type){
+                        case 0:
+                        message3("You attacked Deamon!", 1);
+                         break;
+                        case 1:
+                        message3("You attacked Fire Breathing Monster!", 1);
+                        break;
+                        case 2:
+                        message3("You attacked Gaint!", 1);
+                        break;
+                        case 3:
+                            message3("You attacked Snake!", 1);
+                        break;
+                        case 4: 
+                            message3("You attacked Undeed!", 1);
+                        break; 
+                        default :
+                            break;
+                    }
                     }
                     break;
                 }

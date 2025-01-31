@@ -5,8 +5,6 @@
 #include "monster.h"
 #include "music.h"
 #include<wchar.h>
-// Room* rooms[4][6];
-// tile map[4][200][200];W
 Level levels[5];
 int FLOOR = 0, HEALTH = 0, MAX_HEALTH = 0, HUNGER = 0, MAX_HUNGER = 0;
 int CHAMP_COLOR, LAST_MOVE;
@@ -1063,6 +1061,17 @@ void message(char *msg, int color){
     clrtoeol();
     move(x, y);
 }
+void message3(char *msg, int color){
+    int x, y;
+    getyx(stdscr, x, y);
+    move(1, 0);
+    clrtoeol();
+    attron(COLOR_PAIR(color) | A_BOLD | A_ITALIC);
+    mvprintw(1, 3, "%s", msg);
+    attroff(COLOR_PAIR(color) | A_BOLD | A_ITALIC);
+    refresh();
+    move(x, y);
+}
 void message2(char *msg, int color, int longer){
     int x, y;
     getyx(stdscr, x, y);
@@ -1794,7 +1803,7 @@ void print_win_message(int y, int x) {
     attroff(A_BLINK);
 }
 
-void win_function() {    attroff(COLOR_PAIR(95) | A_BOLD);
+void win_function() {
 
     clear();
     cbreak();
@@ -1831,8 +1840,8 @@ void print_save(int y, int x) {
     "H   H  EEEEE  IIIII   L             H   H  III  TTTTT  L       EEEEE  RRRRR",
     "H   H  E        I     L             H   H   I     T    L       E      R   R",
     "HHHHH  EEEE     I     L             HHHHH   I     T    L       EEEE   RRRRR",
-    "H   H  E        I     L             H   H   I     T    L       E      R  R",
-    "H   H  EEEEE  IIIII   LLLLL         H   H  III    T    LLLLL   EEEEE  R   R"
+    "H   H  E        I     L             H   H   I     T    L       E      R   R ",
+    "H   H  EEEEE  IIIII   LLLLL         H   H  III    T    LLLLL   EEEEE  R   RR"
     };
 
     attron(COLOR_PAIR(2));
@@ -1840,11 +1849,14 @@ void print_save(int y, int x) {
         mvprintw(y + i, x, saved[i]);
     }
     attroff(COLOR_PAIR(2));
-    attron(COLOR_PAIR(95) | A_BOLD);
-    for (int i = 0; i < 5; i++) {
+
+    attron(COLOR_PAIR(1));
+    for(int i = 0; i < 5; i++){
         mvprintw(y+10 + i, x-15, he[i]);
     }
-    attroff(COLOR_PAIR(95) | A_BOLD);
+
+    attroff(COLOR_PAIR(1));
+
     refresh();
 }
 
@@ -1960,6 +1972,7 @@ int main(){
     init_pair(95, COLOR_RED, COLOR_BLACK);
     init_pair(85,  COLOR_BLACK, COLOR_RED);
     init_pair(1,  COLOR_RED, COLOR_BLACK);
+    init_pair(69,  COLOR_RED, COLOR_RED);
     init_pair(2,  COLOR_GREEN, COLOR_BLACK);
     init_pair(3,  COLOR_YELLOW, COLOR_BLACK);
     init_pair(4,  COLOR_ORANGE, COLOR_BLACK);

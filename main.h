@@ -150,6 +150,7 @@ int choose_mode();
 void message2(char *msg, int color, int longer);
 void print_save(int y, int x);
 void save_function();
+void message3(char *msg, int color);
 extern Level levels[5];
 extern int FLOOR, music_status, HEALTH, MAX_HEALTH;
 extern int CHAMP_COLOR;
